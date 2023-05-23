@@ -23,7 +23,7 @@ public class Produto {
 		return valorUnitario * quantidade;
 	}
 	
-	public static double calcularPrecoVenda(double valorUnitario, double margemLucro) {
+	public static double calcularPrecoVenda (double valorUnitario, double margemLucro) {
 		return valorUnitario + (valorUnitario * margemLucro / 100);
 	}
 	
