@@ -9,16 +9,16 @@ public class FuncionarioDataSource {
 	
 	public static void criarLista() {
 		// Método apenas para simular dados existentes
-		addFuncionario(new Funcionario(1, "Juliana", 6000, 4));
-		addFuncionario(new Funcionario(2, "Marcos", 20000, 3));
-		addFuncionario(new Funcionario(3, "Elon Musk", 1328, 5));
-		addFuncionario(new Funcionario(4, "Gretchen", 50000, 2));
+		listaFuncionarios.add(new Funcionario(1, "Juliana", 6000, 4));
+		listaFuncionarios.add(new Funcionario(2, "Marcos", 20000, 3));
+		listaFuncionarios.add(new Funcionario(3, "Elon Musk", 1328, 5));
+		listaFuncionarios.add(new Funcionario(4, "Gretchen", 50000, 2));
 	}
 	
 	public static List<Funcionario> getLista() {
 		return listaFuncionarios;
 	}
-	
+	 
 	public static void addFuncionario(Funcionario func) {
 		listaFuncionarios.add(func);
 	}

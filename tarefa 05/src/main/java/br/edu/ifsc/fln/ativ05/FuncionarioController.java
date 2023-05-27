@@ -22,6 +22,8 @@ public class FuncionarioController {
 			@PathVariable("dep") int dependentes) {
 		
 		// TODO Deveria haver uma checagem para não permitir adicionar funcionário com matrícula duplicada
+		// Perguntar ao professor se esta lógica toda cabe ao Controller
+		// Ou deveria estar nos Modelos
 		
 		Funcionario fulano = new Funcionario(matricula, nome, salarioBase, dependentes);		
 		FuncionarioDataSource.addFuncionario(fulano);
@@ -55,6 +57,9 @@ public class FuncionarioController {
 	public double getSalario(
 			@PathVariable("mat") int matricula) {
 		return FuncionarioDataSource.getSalariodeFuncionario(matricula);
+		
+		// Outra opção:
+		// return FuncionarioDataSource.getFuncionario(matricula).calcularSalarioLiquido();
 	}
 
 	
