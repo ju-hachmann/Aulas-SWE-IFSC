@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Ativ05Application {
 
 	public static void main(String[] args) {
-		FuncionarioDataSource.criarLista();
+		FuncionarioDataSource.criarLista(); // apenas para simular base de dados existente
 		SpringApplication.run(Ativ05Application.class, args);
 	}
 
