@@ -23,7 +23,7 @@ public class FuncionarioController {
 		
 		// TODO Deveria haver uma checagem para não permitir adicionar funcionário com matrícula duplicada
 		// Perguntar ao professor se esta lógica toda cabe ao Controller
-		// Ou deveria estar nos Modelos
+		// Ou deveria estar no Model
 		
 		Funcionario fulano = new Funcionario(matricula, nome, salarioBase, dependentes);		
 		FuncionarioDataSource.addFuncionario(fulano);
@@ -33,7 +33,7 @@ public class FuncionarioController {
 	
 	// 02 - listar todos os funcionarios
 	@RequestMapping(
-			value="/listar",
+			value="/listar", // podia ser só "/" pra facilitar
 			method=RequestMethod.GET)
 	public List<Funcionario> listar() {
 		return FuncionarioDataSource.getLista();
