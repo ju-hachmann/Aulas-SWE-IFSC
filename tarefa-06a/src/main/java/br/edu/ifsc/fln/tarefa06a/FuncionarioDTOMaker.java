@@ -1,4 +1,4 @@
-package br.edu.ifsc.fln.tarefa05a;
+﻿package br.edu.ifsc.fln.tarefa06a;
 
 // Esta classe existe apenas para tirar a criação do DTO lá do Controller
 // Esta classe faria o acesso ao Banco de Dados, por exemplo

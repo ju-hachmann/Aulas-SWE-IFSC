@@ -1,4 +1,4 @@
-package br.edu.ifsc.fln.tarefa05a;
+package br.edu.ifsc.fln.tarefa06a;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

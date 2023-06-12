@@ -1,4 +1,4 @@
-package br.edu.ifsc.fln.tarefa05a;
+﻿package br.edu.ifsc.fln.tarefa06a;
 
 
 public class Funcionario {
