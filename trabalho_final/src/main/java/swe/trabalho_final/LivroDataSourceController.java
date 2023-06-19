@@ -69,8 +69,8 @@ public class LivroDataSourceController {
 	
 	@RequestMapping(value="reajustar_preco_por_id", method=RequestMethod.PUT,
 			consumes = MediaType.APPLICATION_JSON_VALUE)
-	public void reajustarPrecoPorId(@RequestBody int id, int taxa) {
-		LivroDataSource.reajustarPrecoPorId(id, taxa);
+	public Livro reajustarPrecoPorId(@RequestBody int id, int taxa) {
+		return LivroDataSource.reajustarPrecoPorId(id, taxa);
 	}
 	
 	@RequestMapping(value="reajustar_preco", method=RequestMethod.PUT,
@@ -80,6 +80,16 @@ public class LivroDataSourceController {
 		LivroDataSource.reajustarPreco(taxa);
 		return LivroDataSource.getAll();
 	}
-
 	
+	@RequestMapping(value="delete_por_id", method=RequestMethod.DELETE,
+			consumes = MediaType.APPLICATION_JSON_VALUE)
+	public void deletePorId(@RequestBody int id) {
+		LivroDataSource.deletePorId(id);
+	}
+	
+	@RequestMapping(value="delete_all", method=RequestMethod.DELETE)
+	public void deleteAll() {
+		LivroDataSource.deleteAll();
+	}
+
 }

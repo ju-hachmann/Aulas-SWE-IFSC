@@ -19,8 +19,21 @@ public class LivroDataSource {
 		livros.add(new Livro(9, 859571, "Discurso sobre o Colonialismo", "Aimé Césaire", "Veneta", 35.96));
 		livros.add(new Livro(10, 857164, "Sobre História", "Eric J. Hobsbawm", "Cia das Letras", 36.90));
 		livros.add(new Livro(11, 855652, "Senhor das Moscas", "William Golding", "Alfaguara", 36.90));
-		
 	}
+	
+	// O que dá de melhorar?
+	// a) Fazer um id autoincremento (Usar o tipo que ele mostrou nas primeiras aulas)
+	// b) Fazer uma busca geral (por qualquer campo)
+	// c) Na classe Livro, melhorar a parte reajuste de preço (FEITO)
+	// d) Não permitir a inclusão de itens idênticos (mesmo isbn) (apenas pelo teste de como seria)
+	// e) Fazer uma página pra se conectar com isso tudo aí =D
+	// f) Elaborar responses e try/catch que facilitem a vida de quem usa a API
+	// g) Pedir autenticação para todos os métodos que não sejam o Get
+	// h) Fazer a documentação da API bonitinha e chamar ela de minha primeira API <3
+	// O que posso aprender fazendo tudo isto?
+	// Posso aprender sobre apis, pq não iremos ver novamente
+	// Esse foi o primeiro momento que eu gostaria de estar sem a bolsa, na verdade =(
+	// Poderia ter mais tempo para debulhar nisso!
 	
 	public static Livro adicionarLivro(Livro livro) {
 		livros.add(livro);
@@ -61,6 +74,7 @@ public class LivroDataSource {
 	}
 	
 	// Essa aqui ficou redundante pq coloquei contains() nas duas buscas acima
+	// Vou modificar esta pra ser uma busca geral (por todos os campos)
 	public static List<List<Livro>> getTodosContendo(String titulo) {
 		// Apresenta resultados hierarquizados, primeiro os que correspondem exatamente à busca
 		// e depois os que contém o termo de busca
@@ -81,6 +95,17 @@ public class LivroDataSource {
 		resultadoBusca.add(resultadoContains);
 		return resultadoBusca;
 	}
+
+	private static boolean matchesEquals() {
+		// o argumento passado precisa ser tanto numero quanto qq outra coisa...
+		return true;
+	}
+
+	private static boolean matchesContains() {
+		// mesma coisa de cima
+		return true;
+	}
+
 	
 	public static LivroDTO getPorIsbnDTO(int isbn) {
 		for(Livro livro : livros) {
@@ -99,13 +124,21 @@ public class LivroDataSource {
 		return livrosDTO;
 	}
 	
-	public static void reajustarPrecoPorId(int id, int taxa) {
+	public static Livro getPorId(int id) {
 		for(Livro livro : livros) {
 			if (livro.getId() == id) {
-				livro.reajustarPreco(taxa);
-				return;
+				return livro;
 			}
 		}
+		return null;
+	}
+	
+	public static Livro reajustarPrecoPorId(int id, int taxa) {
+		Livro livro = getPorId(id);
+		if (livro != null) {
+			livro.reajustarPreco(taxa);
+		}
+		return livro;
 	}
 	
 	public static void reajustarPreco(int taxa) {
@@ -113,6 +146,19 @@ public class LivroDataSource {
 			livro.reajustarPreco(taxa);
 		}
 	}
+		
+	public static void deletePorId(int id) {
+		for(Livro livro : livros) {
+			if (livro.getId() == id) {
+				livros.remove(livro);
+				return;
+			}
+		}
+	}
 	
+	public static void deleteAll() {
+		livros.clear();
+	}
 	
 }
+ 

@@ -1,5 +1,8 @@
 package swe.trabalho_final;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Livro {
 
 	private int id;
@@ -68,7 +71,8 @@ public class Livro {
 	}
 	
 	public void reajustarPreco(int taxa) {
-		preco = preco + (preco * taxa / 100);
+		double novoPreco = preco + (preco * taxa / 100);
+		preco = new BigDecimal(String.valueOf(novoPreco)).setScale(2, RoundingMode.HALF_DOWN).doubleValue();
 	}
 	
 }
